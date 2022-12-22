@@ -1,42 +1,47 @@
+let d = new Date();
+let n = d.toLocaleDateString();
+document.getElementById("date").innerHTML = n;//affiche la date local
+
 //crée un var avec ma clé que j'ai générer
 let APIKEY = '41224718faf72e92aaa672d98dfa894a';
 
 
-let apiCall = function (city) {
-    //crée une var pour url pour lier mon API key
-    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}&units=metric&lang=fr`;
+let apiCall = function (city) {//cée une fonction pour afficher l'element sur la page
 
-    //fait appel a l'url
-    fetch(url)
-        .then((response) => response.json()
+    let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}&units=metric&lang=fr`;//crée une var pour url pour lier mon API key
+
+
+    fetch(url)//fait appel a l'url
+        .then((response) => response.json()//donne une reponse du fichier json
             .then((data) => {
                 console.log(data);
 
-                document.querySelector('#city').innerHTML = data.city.name;
+                document.querySelector('#city').innerHTML = data.city.name;//selectionne l'id html
                 console.log(data.city.name);
-                
-                document.querySelector('#temp').innerHTML =
-                    "<i class='fa-solid fa-temperature-empty'></i>" + data.list[1].main.temp + '°';
-                console.log(data.list[1].main.temp);
 
-                document.querySelector('#humidity').innerHTML =
-                    "<i class='fa-solid fa-droplet-degree'></i>" + data.list[1].main.humidity + '%';
-                console.log(data.list[1].main.humidity);
+                document.querySelector('#temp').innerHTML =//selectionne l'id html
+                    + data.list[0].main.temp + '°';
+                console.log(data.list[0].main.temp);
 
-                document.querySelector('#wind').innerHTML =
-                    "<i class='fa-thin fa-wind'></i>" + data.list[1].wind.speed + 'km/h';
-                console.log(data.list[1].wind.speed);
+                document.querySelector('#description').innerHTML =//selectionne l'id html
+                    + data.list[0].weather[0].description;
+                console.log(data.list[0].weather[0].description);
+
+                document.querySelector('#icon').innerHTML =//selectionne l'id html
+                    + data.list[0].weather[0].icon;
+                console.log(data.list[0].weather[0].icon);
+
             })
-        ).catch(err => console.log('erreur : ' + err));
+        ).catch(err => console.log('erreur : ' + err));//affiche les erreur dans la console du navigateur
+
 };
-//sélectionné la balise formulaire lui ajoute un click
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault()
-    //crée une var qui va selectionner input dand le html
-    let ville = document.querySelector('#inputCity').value;
+
+document.querySelector('form').addEventListener('submit', function (e) {//sélectionné la balise formulaire lui ajoute un ecouteur d'evenement
+    e.preventDefault() //empeche l'evenement par default
+
+    let ville = document.querySelector('#inputCity').value;//crée une var qui va selectionner input dand le html
 
     apiCall(ville);
 });
 
 apiCall('charleroi,BE');
-//for (data = 0; data < 5; data++);

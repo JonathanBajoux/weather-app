@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(./image/317396.JPG);
+    background-position: 10% 20%;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+
+
+    .enter_text {
+        width: 60vw;
+        height: 5vw;
+
+    }
+
+    .click_search {
+        margin-top: 3vw;
+        width: 62vw;
+        height: 5vw;
+    }
+}
+
+.box-content {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 30vw;
+    margin-top: 25vw;
+    background: rgba(243, 238, 238, 0.445);
+    width: 40vw;
+    height: 40vw;
+    text-align: center;
+    font-size: 6vw;
+    border-radius: 5vw;
+    font-weight: bold;
+
+    .city {
+        background-color: orange;
+        border-radius: 5vw 5vw 0vw 0vw;
+    }
+}
