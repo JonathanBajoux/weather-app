@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/open-weather/2.0.0/openweather.min.js"></script>
     <script defer src="script.js"></script>
     <title>weather app</title>
 </head>
@@ -20,13 +20,13 @@
             <button type="submit" class="click_search"> recherche </button>
         </form>
     </div>
-
+    
     <div class="box-content">
         <div id="city" class="city"></div>
         <div id="temp" class="temp"></div>
         <div id="description" class="description"></div>
         <div id="date" class="date"></div>
-        <div id="icon" class="icon"></div>
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" class="icon">
     </div>
 </body>
 

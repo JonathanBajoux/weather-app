@@ -2,7 +2,7 @@ let d = new Date();
 let n = d.toLocaleDateString();
 document.getElementById("date").innerHTML = n;//affiche la date local
 
-//crée un var avec ma clé que j'ai générer
+//crée un var avec une clé que j'ai générer
 let APIKEY = '41224718faf72e92aaa672d98dfa894a';
 
 
@@ -16,19 +16,21 @@ let apiCall = function (city) {//cée une fonction pour afficher l'element sur l
             .then((data) => {
                 console.log(data);
 
+
                 document.querySelector('#city').innerHTML = data.city.name;//selectionne l'id html
                 console.log(data.city.name);
 
                 document.querySelector('#temp').innerHTML =//selectionne l'id html
-                    + data.list[0].main.temp + '°';
+                    data.list[0].main.temp + '°';
                 console.log(data.list[0].main.temp);
 
+
                 document.querySelector('#description').innerHTML =//selectionne l'id html
-                    + data.list[0].weather[0].description;
+                    data.list[0].weather[0].description;
                 console.log(data.list[0].weather[0].description);
 
-                document.querySelector('#icon').innerHTML =//selectionne l'id html
-                    + data.list[0].weather[0].icon;
+                document.querySelector('#icon').innerHTML = //selectionne l'id html
+                    data.list[0].weather[0].icon;
                 console.log(data.list[0].weather[0].icon);
 
             })

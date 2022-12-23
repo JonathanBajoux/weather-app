@@ -26,17 +26,37 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
-  margin-left: 30vw;
-  margin-top: 25vw;
+  margin-left: 5vw;
+  margin-top: 11vw;
   background: rgba(243, 238, 238, 0.445);
-  width: 40vw;
-  height: 40vw;
-  text-align: center;
+  width: 90vw;
+  height: 30vw;
+  text-align: justify;
   font-size: 6vw;
   border-radius: 5vw;
   font-weight: bold;
+  border: solid;
 }
 .box-content .city {
-  background-color: orange;
+  display: flex;
+  margin-left: 2vw;
+  margin-top: 3vw;
   border-radius: 5vw 5vw 0vw 0vw;
+}
+.box-content .temp {
+  margin-left: 30vw;
+  margin-top: 5vw;
+}
+.box-content .description {
+  margin-left: 53vw;
+  margin-top: -7vw;
+}
+.box-content .date {
+  margin-left: 57vw;
+  margin-top: -19vw;
+}
+.box-content .icon {
+  width: 25vw;
+  margin-top: -2vw;
+  margin-left: 1vw;
 }/*# sourceMappingURL=style.css.map */
