@@ -1,37 +1,34 @@
-let d = new Date();
-let n = d.toLocaleDateString();
-document.getElementById("date").innerHTML = n;//affiche la date local
+let city1 = document.querySelector('#city');
+let temperature = document.querySelector('#temp');
+let description = document.querySelector('#description');
+let icon = document.querySelector('#icon');
 
+//appel la date local
+function appelDate() {
+    let date1 = new Date();
+    return date1.toLocaleDateString();
+}
 //crée un var avec une clé que j'ai générer
 let APIKEY = '41224718faf72e92aaa672d98dfa894a';
-
 
 let apiCall = function (city) {//cée une fonction pour afficher l'element sur la page
 
     let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}&units=metric&lang=fr`;//crée une var pour url pour lier mon API key
 
-
     fetch(url)//fait appel a l'url
         .then((response) => response.json()//donne une reponse du fichier json
             .then((data) => {
-                console.log(data);
 
+                city1.innerHTML = data.city.name;//selectionne l'id html
 
-                document.querySelector('#city').innerHTML = data.city.name;//selectionne l'id html
-                console.log(data.city.name);
+                temperature.innerHTML = data.list[0].main.temp + '°';//selectionne l'id html
 
-                document.querySelector('#temp').innerHTML =//selectionne l'id html
-                    data.list[0].main.temp + '°';
-                console.log(data.list[0].main.temp);
+                description.innerHTML = data.list[0].weather[0].description;//selectionne l'id html
 
+                icon.innerHTML = data.list[0].weather[0].icon;//selectionne l'id html
 
-                document.querySelector('#description').innerHTML =//selectionne l'id html
-                    data.list[0].weather[0].description;
-                console.log(data.list[0].weather[0].description);
-
-                document.querySelector('#icon').innerHTML = //selectionne l'id html
-                    data.list[0].weather[0].icon;
-                console.log(data.list[0].weather[0].icon);
+                let date = appelDate();
+                document.getElementById("date").innerHTML = date;
 
             })
         ).catch(err => console.log('erreur : ' + err));//affiche les erreur dans la console du navigateur
