@@ -2,7 +2,7 @@ import { appelDate } from './module/date.js'; // import
 import { APP } from './model/app.js';
 import {createWeatherCard} from './module/createCard.js';
 
-let city1 = document.querySelector('#city');// crée un seul variable pour selectionner tout les elements dans un tableau
+let city1 = document.querySelector('#city'); // crée un seul variable pour selectionner tout les elements dans un tableau
 let temperature = document.querySelector('#temp');
 let description = document.querySelector('#description');
 let icon = document.querySelector('#icon');
@@ -32,7 +32,7 @@ let apiCall = function (city) { //crée une fonction pour lier  a l'api
                     let date = data.list[elem].dt_txt.split(" ")[0];
                     let degrees = data.list[elem].main.temp;
                     let condition = data.list[elem].weather[0].main;
-                    let icons = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
+                    let icons = `http://openweathermap.org/img/wn/${data.list[elem].weather[0].icon}@2x.png`;
 
                     let wkCard = createWeatherCard(date, degrees, condition, icons);
                     main.appendChild(wkCard);
